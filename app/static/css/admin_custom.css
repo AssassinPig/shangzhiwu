@@ -1,0 +1,101 @@
+body {
+    background: #ffffff;
+}
+
+.header {
+    /*/height: 100px;*/
+}
+
+.title {
+    margin-top:50px;
+    margin-left: 50px;
+    font-size: 50px;
+}
+
+.login_tip {
+    margin-top: 20px;
+    margin-right: 60px;
+    float: right;
+}
+
+.left {
+    float: left;
+    width: 200px;
+    //height: 100%;
+    border-right: solid 1px black;
+}
+
+.middle {
+    display: block;
+    width: 1200px;
+    height: 80%;
+    margin-top: 20px;
+    margin-left: 20px;
+    float: left;
+    border: solid 1px black;
+}
+
+.login_dig {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.footer {
+    margin-top: 20px;
+    height: 80px;
+    width: 100%;
+    float: left;
+    border-top: solid 1px black;
+}
+
+.admin_info {
+    margin: 25px auto;
+    float: right;
+    margin-right: 50px;
+}
+
+.main_menu_list {
+    list-style: none;
+}
+
+.main_menu_list li {
+    display: block;
+    height: 30px;
+    border-bottom: solid 1px black;
+    text-align: center;
+    line-height: 28px;
+}
+
+.main_menu_list li a {
+    margin: 0 auto;
+}
+
+.common_table {
+    width: 100%;
+}
+
+.common_table thead{
+    background-color: #563d7c;
+    color: #ffffff;
+}
+
+.common_table tr{
+    height: 30px;
+    margin-top: 3px;
+    border-bottom: solid 1px black;
+}
+
+.common_table td{
+    height: 30px;
+    border-right: solid 1px black;
+    text-align: center;
+    max-width: 500px;
+}
+
+#editor {
+    max-width: 800px;
+    min-height: 300px;
+}
+

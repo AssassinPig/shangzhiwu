@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css"></style>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/global.css') }}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/admin_custom.css') }}">
 	<script language="javascript" src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
-	<script language="javascript" src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-	<head>
+	
+	<div class="header">
 		{% if title %}
-		<title> {{title}} - microblog </title>
+		<title> {{title}} - shangzhiwu </title>
 		{% else %}
-		<title> Welcome to microblog </title>
+		<title> Welcome to shangzhiwu </title>
 		{% endif %}
-	</head>
+	</div>
 	<body>
 		<h1>尚之舞 | 后台管理页面</h1>
 		<div>
@@ -31,23 +34,78 @@
 		{% endif %}
 		{% endwith %}
 
-		<ul>
-			<li>
-				<a href="/admin/">首页</a>
-				<a href="/admin/about">公司简介</a>
-				<a href="/admin/course">培训项目</a>
-				<a href="/admin/coach">团队教师</a>
-				<a href="/admin/elegant">学员风采</a>
-				<a href="/admin/charge">资费管理</a>
-				<a href="/admin/news">新闻发布</a>
-				<a href="/admin/industry">业界消息</a>
-				<a href="/admin/video">精彩视频</a>
-				<a href="/admin/signup">报名信息</a>
-				<a href="/admin/branch">分店信息</a>
-			</li>
-		</ul>
-		
-		{% block content %} {% endblock %}
+		{% if g.user %}
+		<div class="left">
+			<ul  class="main_menu_list">
+				<li>
+					<a href="/admin/">首页</a>
+				</li>
+				<li>
+					<a href="/admin/about">公司简介</a>
+				</li>
+				<li>
+					<a href="/admin/course">培训项目</a>
+				</li>
+				<li>
+					<a href="/admin/coach">团队教师</a>
+				</li>
+				<li>
+					<a href="/admin/elegant">学员风采</a>
+				</li>
+				<li>
+					<a href="/admin/charge">资费管理</a>
+				</li>
+				<li>
+					<a href="/admin/news">新闻发布</a>
+				</li>
+				<li>
+					<a href="/admin/industry">业界消息</a>
+				</li>
+				<li>
+					<a href="/admin/video">精彩视频</a>
+				</li>
+				<li>
+					<a href="/admin/signup">报名信息</a>
+				</li>
+				<li>
+					<a href="/admin/branch">分店信息</a>
+				</li>
+			</ul>	
+		</div>
 
+		
+		<div class="middle">
+			{% block content %} {% endblock %}	
+		</div>
+		{%  else %}
+			<div class="login_dig">
+				<form action="/admin/login/" method="post">
+					<table>
+						<tr>
+							<td>用户名</td>
+							<td><input type="text" name="name"></input></td>
+						</tr>
+
+						<tr>
+							<td>密码</td>
+							<td><input type="password" name="password"></input></td>
+						</tr>
+						<tr>
+							<td><input type="submit" ></input></td>
+						</tr>
+					</table>
+				</form>	
+			</div>
+			
+		{% endif %}
+
+		<div class="footer">
+			<div class="admin_info">
+				<ul>
+					<li>技术支持QQ:1544960182</li>
+					<li>Email:assassinpig@gmail.com</li>
+				</ul>
+			</div>
+		</div>
 	<body>
 </html>

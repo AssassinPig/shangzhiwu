@@ -23,6 +23,7 @@ from sqlalchemy import update
 def before_request():
     g.user = current_user()
 
+
 def getRedirectUrl(module_no):
     redirect_url = ''
     if module_no == 1:
@@ -85,11 +86,17 @@ def logout():
 
 @app.route('/admin/user/')
 def user():
+    if g.user == None:
+        return redirect('/admin/')
+
     users = User.query.all()
     return render_template('admin/user.html', users = users)
 
 @app.route('/admin/user_new', methods=['GET', 'POST'])
 def user_new():
+    if g.user == None:
+        return redirect('/admin/')
+
     if request.method == 'POST':
         user = User()
         user.name = request.form['name']
@@ -105,6 +112,9 @@ def user_new():
 
 @app.route('/admin/user_delete/<user_id>', methods=['GET', 'DELETE'])
 def user_delete(user_id):
+    if g.user == None:
+        return redirect('/admin/')
+
     user = User.query.filter_by(id=user_id).first()
     if user != None:
         user.delete()
@@ -112,6 +122,9 @@ def user_delete(user_id):
 
 @app.route('/admin/user_edit/<user_id>', methods=['GET', 'POST']) 
 def user_edit(user_id):
+    if g.user == None:
+        return redirect('/admin/')
+
     user = User.query.filter_by(id=user_id).first()
     if user != None:
         if  request.method == 'POST':
@@ -131,6 +144,9 @@ def allowed_file(filename):
 
 @app.route('/upload/', methods=['GET', 'POST'])
 def upload():
+    if g.user == None:
+        return redirect('/admin/')
+
     mimetype = 'application/json'
     result = {}
     action = request.args.get('action')
@@ -246,46 +262,66 @@ def upload():
 
 @app.route('/admin/about/')
 def admin_about():
+    if g.user == None:
+        return redirect('/admin/')
+
     metainfos = MetaInfo.getAbout()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=1)
 
 @app.route('/admin/course/')
 def admin_course():
+    if g.user == None:
+        return redirect('/admin/')
+
     metainfos = MetaInfo.getCourse()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=2)
 
 @app.route('/admin/coach/')
 def admin_coach():
+    if g.user == None:
+        return redirect('/admin/')    
     metainfos = MetaInfo.getCoach()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=3)
 
 @app.route('/admin/elegant/')
 def admin_elegant():
+    if g.user == None:
+        return redirect('/admin/')    
     metainfos = MetaInfo.getElegant()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=4)
 
 @app.route('/admin/charge/')
 def admin_charge():
+    if g.user == None:
+        return redirect('/admin/')
     metainfos = MetaInfo.getCharge()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=5)
 
 @app.route('/admin/news/')
 def admin_news():
+    if g.user == None:
+        return redirect('/admin/')    
     metainfos = MetaInfo.getNews()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=6)
 
 @app.route('/admin/industry/')
 def admin_industry():
+    if g.user == None:
+        return redirect('/admin/')    
     metainfos = MetaInfo.getIndustry()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=7)
 
 @app.route('/admin/video/')
 def admin_video():
+    if g.user == None:
+        return redirect('/admin/')    
     metainfos = MetaInfo.getVideo()
     return render_template('admin/metainfo.html', metainfos=metainfos, module_no=8)
 
 @app.route('/admin/metainfo_new/<int:module_no>', methods=['GET', 'POST'])
 def metainfo_new(module_no):
+    if g.user == None:
+        return redirect('/admin/')    
     if request.method == 'POST':
         title = request.form['title']
         order_no = request.form['order_no']
@@ -322,6 +358,8 @@ def metainfo_new(module_no):
 
 @app.route('/admin/metainfo_delete/<int:metainfo_id>', methods=['GET', 'DELETE'])
 def  metainfo_delete(metainfo_id):
+    if g.user == None:
+        return redirect('/admin/')    
     metainfo = MetaInfo.query.filter_by(id=metainfo_id).first()
     redirectUrl = getRedirectUrl(metainfo.module_no)
 
@@ -331,6 +369,8 @@ def  metainfo_delete(metainfo_id):
 
 @app.route('/admin/metainfo_edit/<int:metainfo_id>', methods=['GET', 'POST']) 
 def metainfo_edit(metainfo_id):
+    if g.user == None:
+        return redirect('/admin/')    
     metainfo = MetaInfo.query.filter_by(id=metainfo_id).first()
     if metainfo != None:
         if  request.method == 'POST':
@@ -370,6 +410,8 @@ def metainfo_edit(metainfo_id):
 
 @app.route('/admin/basicinfo/')
 def basicinfo():
+    if g.user == None:
+        return redirect('/admin/')    
     basicinfos = BasicInfo.query.all()
     if basicinfos != None:
         return render_template('/admin/basicinfo.html', basicinfos=basicinfos)
@@ -378,6 +420,8 @@ def basicinfo():
 
 @app.route('/admin/basicinfo_new', methods=['GET', 'POST'])
 def basicinfo_new():
+    if g.user == None:
+        return redirect('/admin/')    
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
@@ -396,6 +440,8 @@ def basicinfo_new():
 
 @app.route('/admin/basicinfo_edit/<basicinfo_id>', methods=['GET', 'POST'])
 def basic_edit(basicinfo_id):
+    if g.user == None:
+        return redirect('/admin/')    
     basicinfo = BasicInfo.query.filter_by(id=basicinfo_id).first()
     if request.method == 'POST':
         if module_no != 1 and module_no != 6 and module_no != 7:
@@ -415,11 +461,15 @@ def basic_edit(basicinfo_id):
 
 @app.route('/admin/branch')
 def admin_branch():
+    if g.user == None:
+        return redirect('/admin/')    
     branches = Branch.query.all()
     return render_template('/admin/branch.html', branches = branches)
 
 @app.route('/admin/branch_new', methods=['GET', 'POST'])
 def branch_new():
+    if g.user == None:
+        return redirect('/admin/')    
     if request.method == 'POST':
         branch = Branch()
         branch.title            = request.form['title']
@@ -437,6 +487,8 @@ def branch_new():
 
 @app.route('/admin/branch_edit/<branch_id>',  methods=['GET', 'POST'])
 def branch_edit(branch_id):
+    if g.user == None:
+        return redirect('/admin/')    
     branch = Branch.query.filter_by(id = branch_id).first()
     if branch != None:
         if request.method == 'POST':
@@ -456,6 +508,8 @@ def branch_edit(branch_id):
     
 @app.route('/admin/branch_delete/<branch_id>', methods=['GET', 'POST'])
 def branch_delete(branch_id):
+    if g.user == None:
+        return redirect('/admin/')    
     branch = Branch.query.filter_by(id = branch_id).first()
     if branch != None:
         branch.delete()
@@ -463,11 +517,15 @@ def branch_delete(branch_id):
 
 @app.route('/admin/signup/')
 def admin_signup():
+    if g.user == None:
+        return redirect('/admin/')    
     signups = Signup.query.all()
     return render_template('/admin/signup.html', signups = signups)
 
 @app.route('/signup_new/', methods=['GET', 'POST'])
 def signup_new():
+    if g.user == None:
+        return redirect('/admin/')    
     if request.method == 'POST':
         print request.form
         signup = Signup()
@@ -490,6 +548,8 @@ def signup_new():
 
 @app.route('/admin/signup_edit/<signup_id>', methods=['GET', 'POST'])
 def signup_edit(signup_id):
+    if g.user == None:
+        return redirect('/admin/')    
     signup = Signup.query.filter_by(id=signup_id).first()
     if signup != None:
         if request.method == 'POST':
@@ -511,6 +571,8 @@ def signup_edit(signup_id):
 
 @app.route('/admin/signup_delete/<signup_id>', methods=['GET', 'DELETE'])
 def signup_delete(signup_id):
+    if g.user == None:
+        return redirect('/admin/')    
     signup = Signup.query.filter_by(id=signup_id).first()
     if signup != None:
         signup.delete()
