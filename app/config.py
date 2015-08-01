@@ -12,7 +12,7 @@ DATABASE = 'shangzhiwu'
 DEBUG = True
 USERNAME = 'root'
 PASSWORD = 'root'
-SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost:3306/shangzhiwu'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:6528e7f8d4@localhost:3306/shangzhiwu'
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 

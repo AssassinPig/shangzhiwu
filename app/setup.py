@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/shangzhiwu'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:6528e7f8d4@localhost:3306/shangzhiwu'
 db = SQLAlchemy(app)
 #db.init_app(app)
 
@@ -88,8 +88,8 @@ class  Signup(db.Model, Mixin):
 def convertUTF8():
     try:
         # 连接mysql的方法：connect('ip','user','password','dbname')
-        con = mdb.connect('192.168.0.108', 'root',
-            'root', 'shangzhiwu');
+        con = mdb.connect('localhost', 'root',
+            '6528e7f8d4', 'shangzhiwu');
 
         # 所有的查询，都在连接con的一个模块cursor上面运行的
         cur = con.cursor()
@@ -105,6 +105,8 @@ def convertUTF8():
 
         #insert into basicinfo values(1, 'shangzhiwu', 'introduction', 'http://www.abc.com/pic' )
         cur.execute('insert into basicinfo values(1, \'shangzhiwu\', \'introduction\', \'http://www.abc.com/pic\' )')
+	cur.close()
+	con.commit()
 
         print "Database version : %s " % data
     finally:
@@ -115,4 +117,4 @@ def convertUTF8():
 if __name__ == '__main__':
     #db.drop_all()
     #db.create_all()
-    #convertUTF8()
+    convertUTF8()

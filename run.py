@@ -2,4 +2,4 @@
 
 from app import app 
 if __name__ == '__main__':
-    app.run(debug = True, host='192.168.0.108')
+    app.run(debug = True, host='120.27.50.82')
