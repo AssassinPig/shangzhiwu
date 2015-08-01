@@ -5,15 +5,15 @@
 	<form action="/admin/basicinfo_edit/{{basicinfo.id}}" method="post"  enctype='multipart/form-data'>
 		<table>
 			<tr>
-				<td>title</td>
+				<td>机构名称</td>
 				<td><input type="text" name="title"  value="{{ basicinfo.title }}"></input></td>
 			</tr>
 			<tr>
-				<td>intro</td>
+				<td>公司简介</td>
 				<td><input type="text" name="intro" value="{{basicinfo.intro}}"></input></td>
 			</tr>
 			<tr>
-				<td>mainpic_url</td>
+				<td>主页主图片</td>
 				<td>{{basicinfo.mainpic_url}}</td>
 			</tr>
 
@@ -22,7 +22,7 @@
 			</tr>
 
 			<tr>
-				<td><input type="submit" ></input></td>
+				<td><input type="submit" value="提交"></input></td>
 			</tr>
 		</table>
 	</form>
@@ -30,15 +30,15 @@
 	<form action="/admin/basicinfo_new" method="post" enctype='multipart/form-data'>
 		<table>
 			<tr>
-				<td>title</td>
+				<td>机构名称</td>
 				<td><input type="text" name="title"  value="{{ basicinfo.title }}"></input></td>
 			</tr>
 			<tr>
-				<td>intro</td>
+				<td>公司简介</td>
 				<td><input type="text" name="intro" value="{{basicinfo.intro}}"></input></td>
 			</tr>
 			<tr>
-				<td>mainpic_url</td>
+				<td>主页主图片</td>
 				<td>{{basicinfo.mainpic_url}}</td>
 			</tr>
 
@@ -47,7 +47,7 @@
 			</tr>
 
 			<tr>
-				<td><input type="submit" ></input></td>
+				<td><input type="submit" value="提交"></input></td>
 			</tr>
 		</table>
 	</form>

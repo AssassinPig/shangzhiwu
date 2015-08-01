@@ -4,29 +4,29 @@
 		<thead>
 			<tr>
 				<td>
-					<label>title</label>
+					<label>标题</label>
 				</td>
 				<td>
-					<label>order_no</label>
+					<label>排序(整数)</label>
 				</td>
 
 				{% if  module_no == 6 or  module_no == 7 %}
 				<td>
-					<lable>visited_times</lable>
+					<lable>访问次数</lable>
 				</td>
 				{%  endif %}
 				{% if  module_no  == 8%}
 				<td>
-					<lable>url</lable>
+					<lable>网址url</lable>
 				</td>
 				<td>
-					<lable>keyword</lable>
+					<lable>关键字</lable>
 				</td>
 				{% endif%}
 			
 				{% if  module_no != 1 and  module_no != 6 and  module_no != 7 %}
 				<td>
-					<lable>title_pic_url</lable>
+					<lable>标题图片</lable>
 				</td>
 				{% endif%}
 				
@@ -64,13 +64,13 @@
 					{% endif%}
 
 					<td>
-						<a href="/admin/metainfo_edit/{{metainfo.id}}">modify</a>
-						<a href="/admin/metainfo_delete/{{metainfo.id}}" method='delete'>delete</a>
+						<a href="/admin/metainfo_edit/{{metainfo.id}}">修改</a>
+						<a href="/admin/metainfo_delete/{{metainfo.id}}" method='delete'>删除</a>
 					</td>
 				</tr>
 				
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="/admin/metainfo_new/{{module_no}}">new instance</a>
+	<a href="/admin/metainfo_new/{{module_no}}">新建</a>
 {% endblock %}

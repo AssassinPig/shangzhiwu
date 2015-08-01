@@ -4,35 +4,35 @@
 	<form action="/admin/branch_edit/{{branch.id}}" method="POST">
 		<table>
 			<tr>
-				<td>title</td>
+				<td>分店名称</td>
 				<td><input type="text" name="title"  value="{{ branch.title }}"></input></td>
 			</tr>
 			<tr>
-				<td>order_no</td>
+				<td>排序(整数)</td>
 				<td><input type="text" name="order_no" value="{{branch.order_no}}"></input></td>
 			</tr>
 			<tr>
-				<td>url</td>
+				<td>分店网址</td>
 				<td><input type="text" name="url" value="{{branch.url}}" ></input></td>
 			</tr>
 			<tr>
-				<td>tel</td>
+				<td>电话</td>
 				<td><input type="text" name="tel" value="{{branch.tel}}" ></input></td>
 			</tr>
 			<tr>
-				<td>address</td>
+				<td>地址</td>
 				<td><input type="text" name="address" value="{{branch.address}}" ></input></td>
 			</tr>
 			<tr>
-				<td>content</td>
+				<td>简介</td>
 				<td><input type="text" name="content" value="{{branch.content}}" ></input></td>
 			</tr>
 			<tr>
-				<td>logo_pic</td>
+				<td>logo图片</td>
 				<td><input type="text" name="logo_pic" value="{{branch.logo_pic}}" ></input></td>
 			</tr>
 			<tr>
-				<td><input type="submit" ></input></td>
+				<td><input type="submit" value="提交"></input></td>
 			</tr>
 		</table>
 	</form>
@@ -40,36 +40,36 @@
 	<form action="/admin/branch_new" method="post">
 		<table>
 			<tr>
-				<td>title</td>
+				<td>分店名称</td>
 				<td><input type="text" name="title"  ></input></td>
 			</tr>
 			<tr>
-				<td>order_no</td>
+				<td>排序(整数)</td>
 				<td><input type="text" name="order_no" ></input></td>
 			</tr>
 			<tr>
-				<td>url</td>
+				<td>分店网址</td>
 				<td><input type="text" name="url"  ></input></td>
 			</tr>
 			<tr>
-				<td>tel</td>
+				<td>电话</td>
 				<td><input type="text" name="tel"  ></input></td>
 			</tr>
 			<tr>
-				<td>address</td>
+				<td>地址</td>
 				<td><input type="text" name="address"  ></input></td>
 			</tr>
 			<tr>
-				<td>content</td>
+				<td>简介</td>
 				<td><input type="text" name="content"  ></input></td>
 			</tr>
 			<tr>
-				<td>logo_pic</td>
+				<td>logo图片</td>
 				<td><input type="text" name="logo_pic"  ></input></td>
 			</tr>
 			
 			<tr>
-				<td><input type="submit" ></input></td>
+				<td><input type="submit" value="提交"></input></td>
 			</tr>
 		</table>
 	</form>

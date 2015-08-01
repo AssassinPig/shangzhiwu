@@ -4,13 +4,13 @@
 		<thead>
 			<tr>
 				<td>
-					<label>title</label>
+					<label>机构名称</label>
 				</td>
 				<td>
-					<label>intro</label>
+					<label>简介</label>
 				</td>
 				<td>
-					<label>mainpic_url</label>
+					<label>主页主图片</label>
 				</td>
 			</tr>
 		</thead>
@@ -27,12 +27,12 @@
 						{{basicinfo.mainpic_url}}
 					</td>
 					<td>
-						<a href="/admin/basicinfo_edit/{{basicinfo.id}}">modify</a>
+						<a href="/admin/basicinfo_edit/{{basicinfo.id}}">修改</a>
 					</td>
 				</tr>
 				
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="/admin/basicinfo_new">new basicinfo</a>
+	<!-- <a href="/admin/basicinfo_new">new basicinfo</a> -->
 {% endblock %}

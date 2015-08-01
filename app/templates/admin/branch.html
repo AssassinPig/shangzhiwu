@@ -4,25 +4,25 @@
 		<thead>
 			<tr>
 				<td>
-					<label>title</label>
+					<label>分店名称</label>
 				</td>
 				<td>
-					<label>order_no</label>
+					<label>排序(整数)</label>
 				</td>
 				<td>
-					<label>url</label>
+					<label>网址</label>
 				</td>
 				<td>
-					<label>tel</label>
+					<label>电话</label>
 				</td>
 				<td>
-					<label>address</label>
+					<label>地址</label>
 				</td>
 				<td>
-					<label>content</label>
+					<label>简介</label>
 				</td>
 				<td>
-					<label>logo_pic</label>
+					<label>logo图片</label>
 				</td>
 			</tr>
 		</thead>
@@ -51,13 +51,13 @@
 						{{branch.logo_pic}}
 					</td>
 					<td>
-						<a href="/admin/branch_edit/{{branch.id}}">modify</a>
-						<a href="/admin/branch_delete/{{branch.id}}" method="delete">delete</a>
+						<a href="/admin/branch_edit/{{branch.id}}">修改</a>
+						<a href="/admin/branch_delete/{{branch.id}}" method="delete">删除</a>
 					</td>
 				</tr>
 				
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="/admin/branch_new">new branch</a>
+	<a href="/admin/branch_new">新建分店</a>
 {% endblock %}

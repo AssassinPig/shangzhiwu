@@ -4,34 +4,34 @@
 		<thead>
 			<tr>
 				<td>
-					<label>name</label>
+					<label>名字</label>
 				</td>
 				<td>
-					<label>sex</label>
+					<label>性别</label>
 				</td>
 				<td>
-					<label>mobile</label>
+					<label>手机</label>
 				</td>
 				<td>
-					<label>email</label>
+					<label>邮箱</label>
 				</td>
 				<td>
-					<label>tel</label>
+					<label>座机</label>
 				</td>
 				<td>
-					<label>address</label>
+					<label>地址</label>
 				</td>
 				<td>
-					<label>content</label>
+					<label>留言</label>
 				</td>
 				<td>
-					<label>now_situation</label>
+					<label>现在的情况</label>
 				</td>
 				<td>
-					<label>has_asked</label>
+					<label>是否询问</label>
 				</td>
 				<td>
-					<label>plan_course</label>
+					<label>计划课程</label>
 				</td>
 			</tr>
 		</thead>
@@ -42,7 +42,11 @@
 						{{signup.name}}
 					</td>
 					<td>
-						{{signup.sex}}
+						{% if signup.sex == 0%}
+							男
+						{% else %}
+							女
+						{% endif%}
 					</td>
 					<td>
 						{{signup.mobile}}
@@ -69,13 +73,13 @@
 						{{signup.plan_course}}
 					</td>
 					<td>
-						<a href="/admin/signup_edit/{{signup.id}}">modify</a>
-						<a href="/admin/signup_delete/{{signup.id}}" method="delete">delete</a>
+						<a href="/admin/signup_edit/{{signup.id}}">详细</a>
+						<a href="/admin/signup_delete/{{signup.id}}" method="delete">删除</a>
 					</td>
 				</tr>
 				
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="/admin/signup_new">new signup</a>
+	<!-- <a href="/admin/signup_new">new signup</a> -->
 {% endblock %}
