@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+  		<div class="row">
+  			<div class="col-xs-12">
+  				<div class="main_content">
+  					<ul>
+
+                                        <li>
+                                          <div class="elem_title">
+                                              <span class="elem_title_chinese">课程</span>
+                                              <span class="elem_title_english">Course</span>
+                                          </div>
+                                          
+                                          <div class="elem_content">
+                                            <p>
+                                            
+                                              专业潮流舞蹈培训第一品牌，最科学教学体系，顶尖导师授课，有无舞蹈基础均可报名，零基础入学，园你舞蹈梦想。外地学院可提供住宿。优秀学员，我校推荐酒吧、KTV、户外商业演、品牌发布会、品牌发布会、明星演唱会、电视台演出、参加舞蹈比赛、各娱乐场所表演。
+                                            
+                                            </p>
+                                            <ul class="course_list">
+                                            {% for course in courses%}
+                                                <li>
+                                                    <div class="normal_button">
+                                                      <a href="/courses/{{course.id}}">{{course.title}}</a>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                            </ul>
+                                            
+                                            {% if c != None %}
+                                              <div class="course_elem">
+                                                    <div class="course_title">
+                                                    <h4><strong>{{c.title}}</strong></h4>  
+                                                    </div>
+                                                    <p>
+                                                      {{c.content}}
+                                                    </p>
+                                              </div>
+                                              {% endif %}
+
+                                          </div>
+                                        </li>
+
+                                </ul>
+
+  				</div>
+  			</div>
+  		</div>
+
+{% endblock %}

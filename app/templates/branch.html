@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  		<div class="row">
+  			<div class="col-xs-12">
+  				<div class="main_content">
+  					<ul>
+
+  						<li>
+  							<div class="elem_title">
+    							<span class="elem_title_chinese">分店</span>
+  							  <span class="elem_title_english">介绍</span>
+                                            <span class="more_button">
+                                            
+                                            </span>
+                                          </div>
+                                          <div class="elem_content">
+                                            <ul class="branch_list">
+                                                {% for b in branches %}
+                                                  <li>
+                                                    <div class="branch_elem">
+                                                      <h4>{{b.title}}</h4>
+                                                      <table>
+                                                        <tr>
+                                                          <td>电话:</td>
+                                                          <td>{{b.tel}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>地址：</td>
+                                                          <td>{{address}}</td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                          <td>地铁站：</td>
+                                                          <td>横岗站(A出口 横岗大厦)</td>
+                                                        </tr>
+                                                          {{ b.content | safe }}
+                                                      
+                                                      </table>
+                                                    </div>
+                                                  </li>
+                                                {% endfor %}
+
+                                            </ul>
+                                          </div>
+  						</li>
+                                    </ul>
+                                    
+  				</div>
+  			</div>
+  		</div>
+{% endblock %}

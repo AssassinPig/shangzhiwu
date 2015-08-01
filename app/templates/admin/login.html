@@ -1,0 +1,20 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+<form action="/admin/login/" method="post">
+	<table>
+		<tr>
+			<td>username</td>
+			<td><input type="text" name="name"></input></td>
+		</tr>
+
+		<tr>
+			<td>password</td>
+			<td><input type="password" name="password"></input></td>
+		</tr>
+		<tr>
+			<td><input type="submit" ></input></td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

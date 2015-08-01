@@ -1,0 +1,38 @@
+{% extends "admin_base.html" %}
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>
+					<label>title</label>
+				</td>
+				<td>
+					<label>intro</label>
+				</td>
+				<td>
+					<label>mainpic_url</label>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for basicinfo in basicinfos%}
+				<tr>
+					<td>
+						{{basicinfo.title}}
+					</td>
+					<td>
+						{{basicinfo.intro}}
+					</td>
+					<td>
+						{{basicinfo.mainpic_url}}
+					</td>
+					<td>
+						<a href="/admin/basicinfo_edit/{{basicinfo.id}}">modify</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/admin/basicinfo_new">new basicinfo</a>
+{% endblock %}

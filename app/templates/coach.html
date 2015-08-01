@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+  		<div class="row">
+  			<div class="col-xs-12">
+  				<div class="main_content">
+  					<ul>
+
+                                    <li>
+                                      <div class="elem_title">
+                                        <span class="elem_title_chinese">教练</span>
+                                        <span class="elem_title_english">团队</span>
+                                        <span class="more_button">
+                                        
+                                        </span>
+                                      </div>
+                                      <div class="elem_content">
+                                        <div class="team_elem">
+                                          <img src="{{coach.title_pic_url}}">
+                                          <div class="team_title">
+                                            <h4>{{coach.title}}</h4>
+                                          </div>
+                                        </div>
+
+                                        <p>
+                                           {{coach.content}}
+                                        </p>
+
+                                      </div>
+                                    </li>
+
+                              </ul>
+
+  				</div>
+  			</div>
+  		</div>
+
+{% endblock %}

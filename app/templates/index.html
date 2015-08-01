@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  	<div class="col-xs-12">
+  		<div class="main_content">
+  		<ul>
+  			<li>
+  				<div class="elem_title">
+    				<span class="elem_title_chinese">课程</span>
+  				<span class="elem_title_english">Course</span>
+                  			<span class="more_button">
+	                  			<a href="/course">
+	                  			<img src="{{url_for('static',  filename='image/more_button.png')}}">
+	                  			</a>
+			              </span>
+                			</div>	
+			                <div class="elem_content">
+			                  <ul class="course_list">
+			                  	{% for course in courses%}
+			                  	<li>
+				                      <div class="normal_button">
+				                      <a href="/courses/{{course.id}}">{{course.title}}</a>
+				                      </div>
+				               </li>
+                				{% endfor %}
+			                  </ul>
+			                </div>
+  			</li>
+
+    			<li>
+				<div class="elem_title">
+				<span class="elem_title_chinese">简介</span>
+				  <span class="elem_title_english">About Us</span>
+			                  <span class="more_button">
+			                    <a href="/about">
+			                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+			                    </a>
+			                  </span>
+			                </div>
+
+			                <div class="elem_content">
+			                  <div class="about_pic">
+			                    <img src="{{url_for('static', filename='image/zhuti01_03_04.jpg')}}">
+			                  </div>
+			                  <p>
+			                  	{{ basicinfo.intro }}	
+			                  </p>
+			                </div>
+  				</li>
+
+              			<li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">动态</span>
+					  <span class="elem_title_english">News</span>
+				                  <span class="more_button">
+				                    <a href="/news">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+
+				                <div class="elem_content">
+				                  <ul class="news_list">
+					                  {% for n in news %}
+					                   <li>
+					                      <div class="news_elem">
+					                        <div class="news_title">
+					                          <a href="/news_content/{{n.id}}">{{n.title}}</a>
+					                        </div>
+					                        <div class="news_date">{{n.created_date}}</div>
+					                      </div>
+					                    </li>
+					                  {% endfor%}
+				                  </ul>
+				                </div>
+  				</li>
+
+              			<li>
+					<div class="elem_title">
+					  <span class="elem_title_chinese">行业</span>
+					  <span class="elem_title_english">Industry</span>
+				                  <span class="more_button">
+				                    <a href="/industry">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+
+				                <div class="elem_content">
+				                  <ul class="news_list">
+				                  {%for i in industrys %}
+				                  <li>
+				                      <div class="news_elem">
+				                        <div class="news_title"><a href="/industry_content/{{ i.id }}">{{ i. title}}</a></div>
+				                        <div class="news_date">{{ i.created_date }}</div>
+				                      </div>
+				                    </li>	
+				                  {% endfor %}
+				                
+				                  </ul>
+				                </div>
+  				</li>
+
+              			<li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">视频</span>
+					<span class="elem_title_english">Video</span>
+				                  <span class="more_button">
+				                    <a href="/video">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+
+				                <div class="elem_content">
+				                  <ul class="video_list">
+				                  {% for v in videos %}
+				                  <li>
+				                      <div class="video_elem">
+				                        <img src="{{v.title_pic_url}}">
+				                        <div class="video_title"><a href="/video">{{v.title}}</a>
+				                        </div>
+				                      </div>
+				                    </li>
+				                  {% endfor %}
+				                  </ul>
+				             </div>
+				 </li>
+
+				 <li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">资费</span>
+					  <span class="elem_title_english">Charge</span>
+				                  <span class="more_button">
+				                    <a href="/charge">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+
+				                <div class="elem_content">
+				                  <ul class="charge_list">
+				                  {% for charge in charges %}
+				                    <li>
+				                      <div class="charge_elem">
+				                        <img src="{{charge.title_pic_url}}">
+				                        <div class="video_title"><a href="/charge/">{{charge.title}}</a>
+				                        </div>
+				                      </div>
+				                    </li>
+				                  {% endfor %}
+				                  </ul>
+				                  </div>
+  				</li>
+
+			              <li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">团队</span>
+					<span class="elem_title_english">Team</span>
+				                  <span class="more_button">
+				                    <a href="/team">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+				                <div class="elem_content">
+				                  <ul class="team_list">
+				                  {% for coach in coaches%}
+				                 <li>
+				                      <div class="team_elem">
+				                      	<img src="{{coach.title_pic_url}}">
+				                        <div class="team_title">
+				                          <a href="/coach/{{coach.id}}">{{coach.title}}</a>
+				                        </div>
+				                      </div>
+				                    </li>
+				                  {% endfor %}
+				                  </ul>
+				                </div>
+  				</li>
+
+              			<li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">风采</span>
+					<span class="elem_title_english">Elegant demeanour</span>
+				                  <span class="more_button">
+				                    <a href="/elegant">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+
+				                <div class="elem_content">
+				                  <ul class="elegant_list">
+				                  {% for e in elegants %}
+				                  <li>
+				                      <div class="elegant_elem">
+				                        <img src="{{e.title_pic_url}}">
+				                      	<div class="elegant_title">
+				                          <a href="/elegant_student/{{e.id}}">{{e.title}}</a>
+				                        </div>
+				                      </div>
+				                    </li>
+				                  {% endfor %}
+				                  </ul>
+				                </div>
+  				</li>
+
+              			<li>
+					<div class="elem_title">
+					<span class="elem_title_chinese">分店</span>
+					  <span class="elem_title_english">Branch</span>
+				                  <span class="more_button">
+				                    <a href="/branch">
+				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
+				                    </a>
+				                  </span>
+				                </div>
+				                <div class="elem_content">
+				                  <div class="branch_info">
+				                  {% for b in branches %}
+				                  	<div class="branch_info_elem">
+					             <a href="/branch">{{b.title}}</a>
+					             </div>
+				                  {%  endfor %}
+				                    
+				                  </div>
+				                </div>
+				 </li>
+			</ul>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

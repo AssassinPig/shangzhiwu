@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script language="javascript" src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+	<script language="javascript" src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	<head>
+		{% if title %}
+		<title> {{title}} - microblog </title>
+		{% else %}
+		<title> Welcome to microblog </title>
+		{% endif %}
+	</head>
+	<body>
+		<h1>Shangzhiwu  admin page</h1>
+		<div>
+			{% if g.user %}
+			  Hi {{ g.user.username }}!
+				<a href="{{ url_for('logout') }}">logout</a>
+			{% else %}
+				<a href="{{ url_for('login') }}">login</a>
+			{% endif %}
+		</div>
+		<hr>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }} </li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+
+		<ul>
+			<li>
+				<a href="/admin/">home</a>
+				<a href="/admin/about">about</a>
+				<a href="/admin/course">course</a>
+				<a href="/admin/coach">coach</a>
+				<a href="/admin/elegant">elegant</a>
+				<a href="/admin/charge">charge</a>
+				<a href="/admin/news">news</a>
+				<a href="/admin/industry">industry</a>
+				<a href="/admin/video">video</a>
+				<a href="/admin/signup">signup</a>
+				<a href="/admin/branch">branch</a>
+			</li>
+		</ul>
+		
+		{% block content %} {% endblock %}
+
+	<body>
+</html>

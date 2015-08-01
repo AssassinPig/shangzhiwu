@@ -1,0 +1,45 @@
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    margin:0; 
+    background: #f0f0f0;
+    /* color:#333; */
+    font:Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+
+html, body{ height:100%; }
+
+ol,ul{ list-style:none }
+
+table, input, textarea, select, button { font-size:14px;vertical-align:middle; }
+img, a img { border:none; }
+table { border-collapse:collapse; border-spacing:0; }/*相邻边被合并*/
+address, caption, cite, code, dfn, em, th, var { font-style:normal; font-weight:normal; }
+q:before, q:after { content:''; }
+
+/* 默认链接颜色 */
+a:link, a:visited { outline-style:none; text-decoration:none; }
+a:hover, a:active { color:#c00; text-decoration:underline; }
+
+/* 颜色 */
+.black { color:#000; }
+.white { color:#fff; }
+.red { color:#e10007; }
+.grey { color:#454545; }
+.orange { color:#ff7200; }
+.blue { color:#325976; }
+.navy { color:#183b7d; }
+
+.left {  float: left; }
+.right { float: right;}
+
+.clear{clear:both;font-size:1px;width:1px;height:0;visibility:hidden;margin-top:0px!important;*margin-top:-1px;line-height:0}
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+.display { display: block; }
+.hidden { display: none; }
+
+.shadow { box-shadow: 0 0 5px rgba(36,41,44,.48); }

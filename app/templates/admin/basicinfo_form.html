@@ -1,0 +1,56 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+{% if basicinfo != None %}
+	<form action="/admin/basicinfo_edit/{{basicinfo.id}}" method="post"  enctype='multipart/form-data'>
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  value="{{ basicinfo.title }}"></input></td>
+			</tr>
+			<tr>
+				<td>intro</td>
+				<td><input type="text" name="intro" value="{{basicinfo.intro}}"></input></td>
+			</tr>
+			<tr>
+				<td>mainpic_url</td>
+				<td>{{basicinfo.mainpic_url}}</td>
+			</tr>
+
+			<tr>
+				<td><input type="file" name="file" ></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% else %}
+	<form action="/admin/basicinfo_new" method="post" enctype='multipart/form-data'>
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  value="{{ basicinfo.title }}"></input></td>
+			</tr>
+			<tr>
+				<td>intro</td>
+				<td><input type="text" name="intro" value="{{basicinfo.intro}}"></input></td>
+			</tr>
+			<tr>
+				<td>mainpic_url</td>
+				<td>{{basicinfo.mainpic_url}}</td>
+			</tr>
+
+			<tr>
+				<td><input type="file" name="file" ></td>
+			</tr>
+
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+
+{% endif %}
+{% endblock %}

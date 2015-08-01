@@ -1,0 +1,63 @@
+{% extends "admin_base.html" %}
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>
+					<label>title</label>
+				</td>
+				<td>
+					<label>order_no</label>
+				</td>
+				<td>
+					<label>url</label>
+				</td>
+				<td>
+					<label>tel</label>
+				</td>
+				<td>
+					<label>address</label>
+				</td>
+				<td>
+					<label>content</label>
+				</td>
+				<td>
+					<label>logo_pic</label>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for branch in branches%}
+				<tr>
+					<td>
+						{{branch.title}}
+					</td>
+					<td>
+						{{branch.order_no}}
+					</td>
+					<td>
+						{{branch.url}}
+					</td>
+					<td>
+						{{branch.tel}}
+					</td>
+					<td>
+						{{branch.address}}
+					</td>
+					<td>
+						{{branch.content}}
+					</td>
+					<td>
+						{{branch.logo_pic}}
+					</td>
+					<td>
+						<a href="/admin/branch_edit/{{branch.id}}">modify</a>
+						<a href="/admin/branch_delete/{{branch.id}}" method="delete">delete</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/admin/branch_new">new branch</a>
+{% endblock %}

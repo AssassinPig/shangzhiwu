@@ -1,0 +1,76 @@
+{% extends "admin_base.html" %}
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>
+					<label>title</label>
+				</td>
+				<td>
+					<label>order_no</label>
+				</td>
+
+				{% if  module_no == 6 or  module_no == 7 %}
+				<td>
+					<lable>visited_times</lable>
+				</td>
+				{%  endif %}
+				{% if  module_no  == 8%}
+				<td>
+					<lable>url</lable>
+				</td>
+				<td>
+					<lable>keyword</lable>
+				</td>
+				{% endif%}
+			
+				{% if  module_no != 1 and  module_no != 6 and  module_no != 7 %}
+				<td>
+					<lable>title_pic_url</lable>
+				</td>
+				{% endif%}
+				
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for metainfo in metainfos%}
+				<tr>
+					<td>
+						{{metainfo.title}}
+					</td>
+					<td>
+						{{metainfo.order_no}}
+					</td>
+
+					{% if metainfo.module_no == 6 or  metainfo.module_no == 7%}
+					<td>
+						{{metainfo.visited_times}}
+					</td>
+					{%  endif %}
+					{% if  metainfo.module_no  == 8%}
+					<td>
+						{{metainfo.url}}
+					</td>
+					<td>
+						{{metainfo.keyword}}
+					</td>
+					{%  endif %}
+
+					{% if  module_no != 1 and  module_no != 6 and  module_no != 7 %}
+					<td>
+						<lable>{{metainfo.title_pic_url}}</lable>
+					</td>
+					{% endif%}
+
+					<td>
+						<a href="/admin/metainfo_edit/{{metainfo.id}}">modify</a>
+						<a href="/admin/metainfo_delete/{{metainfo.id}}" method='delete'>delete</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/admin/metainfo_new/{{module_no}}">new instance</a>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "admin_base.html" %}
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>
+					<label>name</label>
+				</td>
+				<td>
+					<label>sex</label>
+				</td>
+				<td>
+					<label>mobile</label>
+				</td>
+				<td>
+					<label>email</label>
+				</td>
+				<td>
+					<label>tel</label>
+				</td>
+				<td>
+					<label>address</label>
+				</td>
+				<td>
+					<label>content</label>
+				</td>
+				<td>
+					<label>now_situation</label>
+				</td>
+				<td>
+					<label>has_asked</label>
+				</td>
+				<td>
+					<label>plan_course</label>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for signup in signups%}
+				<tr>
+					<td>
+						{{signup.name}}
+					</td>
+					<td>
+						{{signup.sex}}
+					</td>
+					<td>
+						{{signup.mobile}}
+					</td>
+					<td>
+						{{signup.email}}
+					</td>
+					<td>
+						{{signup.tel}}
+					</td>
+					<td>
+						{{signup.address}}
+					</td>
+					<td>
+						{{signup.content}}
+					</td>
+					<td>
+						{{signup.now_situation}}
+					</td>
+					<td>
+						{{signup.has_asked}}
+					</td>
+					<td>
+						{{signup.plan_course}}
+					</td>
+					<td>
+						<a href="/admin/signup_edit/{{signup.id}}">modify</a>
+						<a href="/admin/signup_delete/{{signup.id}}" method="delete">delete</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/admin/signup_new">new signup</a>
+{% endblock %}

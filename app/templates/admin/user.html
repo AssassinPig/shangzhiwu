@@ -1,0 +1,42 @@
+{% extends "admin_base.html" %}
+{% block content %}
+	<table>
+		<thead>
+			<tr>
+				<td>
+					<label>name</label>
+				</td>
+				<td>
+					<label>email</label>
+				</td>
+				<td>
+					<label>tel</label>
+				</td>
+				<td>
+					<label>operation</label>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users%}
+				<tr>
+					<td>
+						{{user.name}}
+					</td>
+					<td>
+						{{user.email}}
+					</td>
+					<td>
+						{{user.tel}}
+					</td>
+					<td>
+						<a href="/admin/user_edit/{{user.id}}">modify</a>
+						<a href="/admin/user_delete/{{user.id}}" method='delete'>delete</a>
+					</td>
+				</tr>
+				
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="/admin/user_new">new user</a>
+{% endblock %}

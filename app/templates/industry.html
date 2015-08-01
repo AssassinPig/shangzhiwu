@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+  		<div class="row">
+  			<div class="col-xs-12">
+  				<div class="main_content">
+  					<ul>
+
+  						<li>
+  							<div class="elem_title">
+    							<span class="elem_title_chinese">行业</span>
+  							  <span class="elem_title_english">资讯</span>
+                                                      <span class="more_button">
+                                                      
+                                                      </span>
+                                                    </div>
+                                                    <div class="elem_content">
+                                                    
+                                                      <ul class="news_list">
+                                                      {% for i in industrys %}
+                                                          <li>
+                                                              <div class="news_elem">
+                                                                <div class="news_title">
+                                                                  <a href="/industry_content/{{i.id}}">{{i.title}}</a>
+                                                                </div>
+                                                                <div class="news_date">{{i.created_date}}</div>
+                                                              </div>
+                                                          </li>
+                                                      {% endfor %}
+                                                      </ul>
+
+                                                    </div>
+             						</li>
+                                                  
+                                                  <li>
+                                                    <div class="prev_one">
+                                                      上一条:<a href="">这个是上一条消息</a>  
+                                                    </div>
+                                                    <div class="next_one">
+                                                      下一条:<a href="">这个是下一条消息</a>  
+                                                    </div>
+                                                  </li>
+
+                                </ul>
+
+  				</div>
+  			</div>
+  		</div>
+
+{% endblock %}

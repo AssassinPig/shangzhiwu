@@ -1,0 +1,123 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+	<script type="text/javascript" src="{{ url_for('static', filename='ueditor/ueditor.config.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='ueditor/ueditor.all.min.js') }}"></script>
+	<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ueditor/lang/zh-cn/zh-cn.js') }}"></script>
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor', {
+	        		serverUrl: "/upload/"
+	    	});
+		{% if metainfo != None %}
+			ue.addListener("ready", function () {
+	        			// editor准备好之后才可以使用
+	        			ue.setContent( "{{ metainfo.content  }}");
+			});
+		{% endif %}
+	</script>
+
+{% if metainfo != None %}
+	<form action="/admin/metainfo_edit/{{metainfo.id}}" method="post" enctype='multipart/form-data'>
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  value="{{ metainfo.title }}"></input></td>
+			</tr>
+			<tr>
+				<td>order_no</td>
+				<td><input type="text" name="order_no" value="{{metainfo.order_no}}"></input></td>
+			</tr>
+
+			{% if metainfo.module_no == 6 or metainfo.module_no == 7%}
+			<tr>	
+				<td>visited_times</td>
+				<td><input type="text" name="visited_times" value="{{metainfo.visited_times}}"></input></td>
+			</tr>				
+			{% endif %}
+
+			{% if metainfo.module_no == 8 %}
+			<tr>	
+				<td>url</td>
+				<td><input type="text" name="url" value="{{metainfo.url}}"></input></td>
+			</tr>
+			<tr>	
+				<td>keyword</td>
+				<td><input type="text" name="keyword" value="{{metainfo.keyword}}"></input></td>
+			</tr>
+			{% endif %}
+
+			{% if metainfo.module_no != 1 and metainfo.module_no != 6 and metainfo.module_no != 7%}
+			<tr>
+				<td>mainpic_url</td>
+				<td>{{metainfo.title_pic_url}}</td>
+			</tr>
+
+			<tr>
+				<td><input type="file" name="file" ></td>
+			</tr>
+			{% endif %}
+
+
+			<tr>
+				<td>content</td>
+				<script id="editor" name="content" type="text/plain"></script>
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% else %}
+	<form action="/admin/metainfo_new/{{module_no}}" method="post" enctype='multipart/form-data'>
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  ></input></td>
+			</tr>
+			<tr>
+				<td>order_no</td>
+				<td><input type="text" name="order_no"></input></td>
+			</tr>
+
+			{% if module_no == 6 or module_no == 7%}
+			<tr>	
+				<td>visited_times</td>
+				<td><input type="text" name="visited_times" ></input></td>
+			</tr>				
+			{% endif %}
+
+			{% if module_no == 8 %}
+			<tr>	
+				<td>url</td>
+				<td><input type="text" name="url" ></input></td>
+			</tr>
+			<tr>	
+				<td>keyword</td>
+				<td><input type="text" name="keyword" ></input></td>
+			</tr>
+			{% endif %}
+
+			{% if metainfo.module_no != 1 and metainfo.module_no != 6 and metainfo.module_no != 7%}
+			<tr>
+				<td>mainpic_url</td>
+				<td>{{metainfo.title_pic_url}}</td>
+			</tr>
+
+			<tr>
+				<td><input type="file" name="file" ></td>
+			</tr>
+			{% endif %}
+
+			<tr>
+				<td>content</td>
+				<script id="editor" name="content" type="text/plain"></script>
+
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% endif %}
+
+{% endblock %}

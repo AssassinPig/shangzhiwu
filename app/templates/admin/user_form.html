@@ -1,0 +1,61 @@
+{% extends "admin_base.html" %}
+{% block content %}
+{% if user != None %}
+	<form action="/admin/user_edit/{{user.id}}" method="post">
+		<table>
+			<tr>
+				<td>name</td>
+				<td><input type="text" name="name"  value="{{ user.name }}"></input></td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td><input type="text" name="email" value="{{user.email}}"></input></td>
+			</tr>
+			<tr>
+				<td>tel</td>
+				<td><input type="text" name="tel" value="{{user.tel}}" ></input></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td><input type="text" name="password" ></input></td>
+			</tr>
+			<tr>
+				<td>confirm</td>
+				<td><input type="text" name="confirm" ></input></td>
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% else %}
+	<form action="/admin/user_new" method="post">
+		<table>
+			<tr>
+				<td>name</td>
+				<td><input type="text" name="name"  ></input></td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td><input type="text" name="email"></input></td>
+			</tr>
+			<tr>
+				<td>tel</td>
+				<td><input type="text" name="tel" ></input></td>
+			</tr>
+			<tr>
+				<td>password</td>
+				<td><input type="text" name="password" ></input></td>
+			</tr>
+			<tr>
+				<td>confirm</td>
+				<td><input type="text" name="confirm" ></input></td>
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% endif %}
+
+{% endblock %}

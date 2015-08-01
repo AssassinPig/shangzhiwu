@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="main_content">
+				<ul>
+                                  {% for about in abouts %}
+
+					<li>
+						<div class="elem_title">
+						    <span class="elem_title_chinese">{{about.title}}</span>
+						    <span class="elem_title_english"></span>
+                                              <span class="more_button">
+                                              <img src="image/more_button.png">
+                                              </span>
+                                            </div>
+                                            <div class="elem_content">
+                                                {{ about.content |safe }}
+                                            </div>
+					</li>
+
+                                    {% endfor %}
+                              </ul>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

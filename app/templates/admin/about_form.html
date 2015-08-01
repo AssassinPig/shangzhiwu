@@ -1,0 +1,62 @@
+{% extends "admin_base.html" %}
+{% block content %}
+
+	<script type="text/javascript" src="{{ url_for('static', filename='ueditor/ueditor.config.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='ueditor/ueditor.all.min.js') }}"></script>
+	<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ueditor/lang/zh-cn/zh-cn.js') }}"></script>
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor', {
+	        		serverUrl: "/upload/"
+	    	});
+		{% if about != None %}
+			ue.addListener("ready", function () {
+	        			// editor准备好之后才可以使用
+	        			ue.setContent( "{{ about.content  }}");
+			});
+		{% endif %}
+	</script>
+
+{% if about != None %}
+	<form action="/admin/about_edit/{{about.id}}" method="post">
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  value="{{ about.title }}"></input></td>
+			</tr>
+			<tr>
+				<td>order_no</td>
+				<td><input type="text" name="order_no" value="{{about.order_no}}"></input></td>
+			</tr>
+			<tr>
+				<td>content</td>
+				<script id="editor" name="content" type="text/plain"></script>
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% else %}
+	<form action="/admin/about_new" method="post">
+		<table>
+			<tr>
+				<td>title</td>
+				<td><input type="text" name="title"  ></input></td>
+			</tr>
+			<tr>
+				<td>order_no</td>
+				<td><input type="text" name="order_no"></input></td>
+			</tr>
+			<tr>
+				<td>content</td>
+				<script id="editor" name="content" type="text/plain"></script>
+
+			</tr>
+			<tr>
+				<td><input type="submit" ></input></td>
+			</tr>
+		</table>
+	</form>
+{% endif %}
+
+{% endblock %}

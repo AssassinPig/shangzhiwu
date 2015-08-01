@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+
+  		<div class="row">
+  			<div class="col-xs-12">
+  				<div class="main_content">
+  					<ul>
+
+  						<li>
+  							<div class="elem_title">
+    							<span class="elem_title_chinese">在线</span>
+  							  <span class="elem_title_english">报名</span>
+                                                        <span class="more_button">
+                                                        
+                                                        </span>
+                                                      </div>
+                                                      <div class="elem_content">
+                                                        <form action="/signup_new/" method="post">
+                                                          
+                                                          <div class="form-group">
+                                                            <label>您现在的情况</label>
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="now_situation" id="question1" value="1" checked="true">
+                                                                我对自己很了解，我已经想好学习什么课程
+                                                              </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="now_situation" id="question1" value="2">
+                                                                我想参加学习，但是我对行业前景不太了解，不能确定自己适合学习什么课程.希望老师给我些建议
+                                                              </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="now_situation" id="question1" value="3">
+                                                                对这方面很感兴趣，想先了解一下
+                                                              </label>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label>您是否已经咨询过课程规划老师</label>
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="has_asked" id="question2" value="0" >
+                                                                否
+                                                              </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="has_asked" id="question2" value="1" checked="true">
+                                                                是
+                                                              </label>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label>计划学习课程</label>
+                                                            <select class="form-control" placeholder="请选择课程" default="default" name="plan_course">
+                                                            {%for c in courses %}
+                                                                  <option value="{{c.id}}"> {{c.title}}</option>                                                            
+                                                            {% endfor %}
+                                                            </select>
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label for="name">姓名</label>
+                                                            <input type="text" class="form-control" id="name"  name="name" placeholder="name">
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label>性别</label>
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="sex" id="sex" value="1" checked="true">
+                                                                男
+                                                              </label>
+                                                            </div>
+
+                                                            <div class="radio">
+                                                              <label>
+                                                                <input type="radio" name="sex" id="sex" value="2">
+                                                                女
+                                                              </label>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label for="telephone">手机</label>
+                                                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="">
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label for="telephone">zuoji</label>
+                                                            <input type="text" class="form-control" id="tel" name="tel" placeholder="">
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label for="exampleInputEmail1">邮箱</label>
+                                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                          </div>
+                                                          
+                                                          <div class="form-group">
+                                                            <label for="address">地址</label>
+                                                            <input type="text" class="form-control" id="address" name="address" placeholder="">
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                            <label for="note">备注</label>
+                                                            <textarea class="form-control" rows="3" name="content"></textarea>
+                                                          </div>
+                                                           
+                                                          <div class="form-group">
+                                                            <label for="verity_code">验证码</label>
+                                                            <input type="text" class="form-control" id="verity_code" name="verity_code" placeholder="">
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <img id="verify_code" src="/static/image/GetCode.bmp"></img>
+                                                            <a href="">看不清楚，换个图片</a>
+                                                          </div>
+
+
+                                                          <button type="submit" class="btn btn-default">Submit</button>
+
+                                                        </form>
+                                                      </div>
+                            			</li>
+
+                                </ul>
+
+  				</div>
+  			</div>
+  		</div>
+
+{% endblock %} 
