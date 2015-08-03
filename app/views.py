@@ -444,17 +444,17 @@ def basic_edit(basicinfo_id):
         return redirect('/admin/')    
     basicinfo = BasicInfo.query.filter_by(id=basicinfo_id).first()
     if request.method == 'POST':
-        if module_no != 1 and module_no != 6 and module_no != 7:
-            file = request.files['file']
-            if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(filename)
+        #if module_no != 1 and module_no != 6 and module_no != 7:
+	file = request.files['file']
+	if file and allowed_file(file.filename):
+		filename = secure_filename(file.filename)
+		filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+		file.save(filename)
 
-                basicinfo.title = request.form['title']
-                basicinfo.intro = request.form['intro']
-                basicinfo.mainpic_url = filename[3:]
-                basicinfo.save()
+		basicinfo.title = request.form['title']
+		basicinfo.intro = request.form['intro']
+		basicinfo.mainpic_url = filename[3:]
+		basicinfo.save()
         return redirect('/admin/')
     else:
         return render_template('/admin/basicinfo_form.html', basicinfo=basicinfo)

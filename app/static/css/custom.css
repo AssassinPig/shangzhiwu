@@ -333,6 +333,11 @@ ul.course_list {
     height: 320px;
 }
 
+.elegant_elem_long {
+    margin: 0 auto;
+    width: 200px;
+}
+
 .elegant_elem img {
     width: 200px;
     height: 280px;
