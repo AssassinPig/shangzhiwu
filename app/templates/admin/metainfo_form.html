@@ -20,35 +20,35 @@
 	<form action="/admin/metainfo_edit/{{metainfo.id}}" method="post" enctype='multipart/form-data'>
 		<table>
 			<tr>
-				<td>title</td>
+				<td>标题</td>
 				<td><input type="text" name="title"  value="{{ metainfo.title }}"></input></td>
 			</tr>
 			<tr>
-				<td>order_no</td>
+				<td>排序</td>
 				<td><input type="text" name="order_no" value="{{metainfo.order_no}}"></input></td>
 			</tr>
 
 			{% if metainfo.module_no == 6 or metainfo.module_no == 7%}
 			<tr>	
-				<td>visited_times</td>
+				<td>访问次数</td>
 				<td><input type="text" name="visited_times" value="{{metainfo.visited_times}}"></input></td>
 			</tr>				
 			{% endif %}
 
 			{% if metainfo.module_no == 8 %}
 			<tr>	
-				<td>url</td>
+				<td>url视频网址</td>
 				<td><input type="text" name="url" value="{{metainfo.url}}"></input></td>
 			</tr>
 			<tr>	
-				<td>keyword</td>
+				<td>关键字</td>
 				<td><input type="text" name="keyword" value="{{metainfo.keyword}}"></input></td>
 			</tr>
 			{% endif %}
 
 			{% if metainfo.module_no != 1 and metainfo.module_no != 6 and metainfo.module_no != 7%}
 			<tr>
-				<td>mainpic_url</td>
+				<td>标题图片</td>
 				<td>{{metainfo.title_pic_url}}</td>
 			</tr>
 
@@ -59,7 +59,7 @@
 
 
 			<tr>
-				<td>content</td>
+				<td>内容</td>
 				<script id="editor" name="content" type="text/plain"></script>
 			</tr>
 			<tr>
@@ -71,35 +71,35 @@
 	<form action="/admin/metainfo_new/{{module_no}}" method="post" enctype='multipart/form-data'>
 		<table>
 			<tr>
-				<td>title</td>
+				<td>标题</td>
 				<td><input type="text" name="title"  ></input></td>
 			</tr>
 			<tr>
-				<td>order_no</td>
+				<td>排序</td>
 				<td><input type="text" name="order_no"></input></td>
 			</tr>
 
 			{% if module_no == 6 or module_no == 7%}
 			<tr>	
-				<td>visited_times</td>
+				<td>访问次数</td>
 				<td><input type="text" name="visited_times" ></input></td>
 			</tr>				
 			{% endif %}
 
 			{% if module_no == 8 %}
 			<tr>	
-				<td>url</td>
+				<td>url视频网址</td>
 				<td><input type="text" name="url" ></input></td>
 			</tr>
 			<tr>	
-				<td>keyword</td>
+				<td>关键字</td>
 				<td><input type="text" name="keyword" ></input></td>
 			</tr>
 			{% endif %}
 
 			{% if metainfo.module_no != 1 and metainfo.module_no != 6 and metainfo.module_no != 7%}
 			<tr>
-				<td>mainpic_url</td>
+				<td>标题图片</td>
 				<td>{{metainfo.title_pic_url}}</td>
 			</tr>
 
@@ -109,7 +109,7 @@
 			{% endif %}
 
 			<tr>
-				<td>content</td>
+				<td>内容</td>
 				<script id="editor" name="content" type="text/plain"></script>
 
 			</tr>
