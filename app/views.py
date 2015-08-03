@@ -382,7 +382,7 @@ def metainfo_edit(metainfo_id):
             visited_times = 1
             url = ""
             keyword = ""
-            title_pic_url = ""
+            title_pic_url = metainfo.title_pic_url 
 
             module_no = metainfo.module_no 
             if module_no == 6 or module_no == 7:
