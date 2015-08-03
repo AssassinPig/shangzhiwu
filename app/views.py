@@ -66,9 +66,9 @@ def login():
         else:
             if user.password == password:
                 login_user(user)
-                return redirect('/admin/')
             else:
                 error = 'password invalidate'
+            return redirect('/admin/')
     else:
         return render_template('admin/login.html')
 
