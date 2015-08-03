@@ -6,4 +6,4 @@ ALTER TABLE user CONVERT TO CHARACTER SET utf8;
 
 insert into user values(1, 'admin', 'abc@gmail.com', '27149', '18616991234' )
 
-insert into basicinfo values(1, 'shangzhiwu', 'introduction介绍内容', '/www.abc.com/pic' )
+insert into basicinfo values(1, 'shangzhiwu', 'introduction介绍内容','www.abc.com/pic' )

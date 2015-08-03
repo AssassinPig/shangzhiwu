@@ -5,12 +5,12 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:6528e7f8d4@localhost:3306/shangzhiwu'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:root@localhost:3306/shangzhiwu'
 db = SQLAlchemy(app)
 #db.init_app(app)
 
-import MySQLdb as mdb
-con = None
+#import MySQLdb as mdb
+#con = None
 
 
 class Mixin:
@@ -116,5 +116,5 @@ def convertUTF8():
 
 if __name__ == '__main__':
     #db.drop_all()
-    #db.create_all()
-    convertUTF8()
+    db.create_all()
+    #convertUTF8()
