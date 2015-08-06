@@ -520,14 +520,20 @@ def admin_signup():
     if g.user == None:
         return redirect('/admin/')    
     signups = Signup.query.all()
+    courses = []
+
+    for s in signups:
+        c = MetaInfo.query.filter_by(id = s.plan_course).first()
+        s.plan_course = c
+
     return render_template('/admin/signup.html', signups = signups)
 
 @app.route('/signup_new/', methods=['GET', 'POST'])
 def signup_new():
-    if g.user == None:
-        return redirect('/admin/')    
+    #if g.user == None:
+    #    return redirect('/admin/')    
     if request.method == 'POST':
-        print request.form
+        #print request.form
         signup = Signup()
         signup.name = request.form['name']
         signup.sex = request.form['sex']
