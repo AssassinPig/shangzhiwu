@@ -644,10 +644,17 @@ def branch():
     branches = Branch.query.all()
     return render_template('branch.html', branches=branches) 
 
+@app.route('/charges/<charge_id>')   
+def charges(charge_id):
+    charges = MetaInfo.getCharge()
+    c = MetaInfo.query.filter_by(id=charge_id).first()
+    return render_template('charge.html', charges=charges, c=c)
+
 @app.route('/charge/')   
 def charge():
     charges = MetaInfo.getCharge()
-    return render_template('charge.html', charges=charges)
+    c = None
+    return render_template('charge.html', charges=charges, c=c)
 
 @app.route('/charge_table/')
 def charge_table():

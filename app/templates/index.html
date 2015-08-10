@@ -132,7 +132,7 @@
 					<span class="elem_title_chinese">资费</span>
 					  <span class="elem_title_english">Charge</span>
 				                  <span class="more_button">
-				                    <a href="/charge">
+				                    <a href="/charge/">
 				                      <img src="{{url_for('static',  filename='image/more_button.png')}}">
 				                    </a>
 				                  </span>
@@ -144,7 +144,7 @@
 				                    <li>
 				                      <div class="charge_elem">
 				                        <img src="{{charge.title_pic_url}}">
-				                        <div class="video_title"><a href="/charge/">{{charge.title}}</a>
+				                        <div class="video_title"><a href="/charges/{{charge.id}}">{{charge.title}}</a>
 				                        </div>
 				                      </div>
 				                    </li>

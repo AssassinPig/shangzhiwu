@@ -15,10 +15,30 @@
                                                 </span>
                                             </div>
                                             <div class="elem_content">
-                                              <a href="/charge_table/">点击查看资费标准</a>
-                                            </div>
-                                      </li>
-                                    </ul>
+                                                                                          
+                                                <ul class="course_list">
+                                                {% for charge in charges%}
+                                                    <li>
+                                                        <div class="normal_button">
+                                                          <a href="/charges/{{charge.id}}">{{charge.title}}</a>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                                </ul>
+                                                
+                                                {% if c != None %}
+                                                  <div class="course_elem">
+                                                        <div class="course_title">
+                                                        </div>
+                                                        <p>
+                                                          {{c.content | safe}}
+                                                        </p>
+                                                  </div>
+                                                  {% endif %}
+                                                </div>
+
+                                        </li>
+                                      </ul>
 
   				</div>
   			</div>
